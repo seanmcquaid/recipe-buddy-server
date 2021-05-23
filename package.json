@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -19,9 +20,13 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "sinon": "^10.0.0"
   }
 }

@@ -5,8 +5,8 @@ Docs for 3rd Party API : https://spoonacular.com/food-api/docs#Search-Recipes-by
 ## Checklist
 
 1. Linting - prettier and eslint setup - done
-2. Unit Testing
-3. Integration Testing
+2. Unit Testing - mocha, sinon, chai installed
+3. Integration Testing - chai-http installed
 4. JWT - installed
 5. Bcrypt - installed
 6. MongoDB setup - mongoose - done but need to set up actual Atlas DB
