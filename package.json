@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "mocha --recursive"
+    "test": "mocha ./src/___tests___/**/*.spec.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
