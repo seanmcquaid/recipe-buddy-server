@@ -16,5 +16,5 @@ Docs for 3rd Party API : https://spoonacular.com/food-api/docs#Search-Recipes-by
 10. Nodemon - done
 11. Users endpoints and example tests
 12. File structure - routes, daos, controllers, util, tests - done
-13. GHA - Pull request workflow
+13. GHA - Pull request workflow - done
 14. .env setup - done

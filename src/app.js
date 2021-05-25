@@ -21,7 +21,7 @@ app.use(cookieParser());
 // Connect MongoDB Atlas
 
 mongoose
-  .connect(process.env.MONGO_DB_URL, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
