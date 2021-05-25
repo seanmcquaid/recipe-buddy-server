@@ -25,7 +25,7 @@ exports.postLogin = async (req, res) => {
       token,
     });
   } catch (error) {
-    return res.status(500).send({
+    return res.status(500).json({
       errorMessage: 'There was an issue with logging in, please try again',
     });
   }
@@ -51,7 +51,7 @@ exports.postRegister = async (req, res) => {
       token,
     });
   } catch (error) {
-    return res.status(500).send({
+    return res.status(500).json({
       errorMessage: 'There was an issue with registering, please try again',
     });
   }
