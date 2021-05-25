@@ -14,7 +14,7 @@ Docs for 3rd Party API : https://spoonacular.com/food-api/docs#Search-Recipes-by
 8. Cors - done
 9. Dotenv - installed
 10. Nodemon - done
-11. Users endpoints and example tests
+11. Users endpoints and example tests - finished endpoints but need to do tests
 12. File structure - routes, daos, controllers, util, tests - done
 13. GHA - Pull request workflow - done
 14. .env setup - done
