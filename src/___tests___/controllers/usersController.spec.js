@@ -75,5 +75,29 @@ describe('usersController', () => {
     });
   });
 
-  describe('postRegister', () => {});
+  describe('postRegister', () => {
+    afterEach(() => {
+      sinon.restore();
+    });
+    it("User doesn't exist", async () => {
+      sinon
+        .stub(UserDao, 'findOne')
+        .withArgs({ username: 'sean' })
+        .returns(null);
+
+      const req = mockRequest({}, { username: 'sean', password: 'hello' });
+      const res = mockResponse();
+
+      await usersController.postRegister(req, res);
+
+      expect(res.status.calledWith(401)).to.be.true;
+      expect(
+        res.json.calledWith({
+          errorMessage: "This user doesn't exist, please try again!",
+        }),
+      ).to.be.true;
+    });
+
+    it('Valid user info', () => {});
+  });
 });
