@@ -2,7 +2,7 @@ const UserDao = require('../daos/UserDao');
 const { hashPassword, verifyPassword } = require('../utils/passwordUtils');
 const { createJwt } = require('../utils/jwtUtils');
 
-export const postLogin = async (req, res) => {
+exports.postLogin = async (req, res) => {
   const { username, password } = req.body;
   try {
     const userInfo = await UserDao.findOne({ username });
@@ -31,10 +31,11 @@ export const postLogin = async (req, res) => {
   }
 };
 
-export const postRegister = async (req, res) => {
+exports.postRegister = async (req, res) => {
   const { username, password } = req.body;
   try {
     const userExists = await UserDao.findOne({ username });
+
     if (!userExists) {
       return res.status(401).json({
         errorMessage: "This user doesn't exist, please try again!",
