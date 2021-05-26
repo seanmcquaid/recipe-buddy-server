@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MONGO_URL: ${{ secrets.MONGO_URL }}
+      JWT_SECRET: secret
     steps:
       - name: Setup GHA
         uses: actions/checkout@v2
