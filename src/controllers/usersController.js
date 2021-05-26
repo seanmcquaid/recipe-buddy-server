@@ -36,9 +36,9 @@ exports.postRegister = async (req, res) => {
   try {
     const userExists = await UserDao.findOne({ username });
 
-    if (!userExists) {
+    if (userExists) {
       return res.status(401).json({
-        errorMessage: "This user doesn't exist, please try again!",
+        errorMessage: 'This user already exists, please try again!',
       });
     }
     const hashedPassword = hashPassword(password);

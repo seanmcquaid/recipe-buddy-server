@@ -83,7 +83,10 @@ describe('usersController', () => {
       sinon
         .stub(UserDao, 'findOne')
         .withArgs({ username: 'sean' })
-        .returns(null);
+        .returns({
+          username: 'sean',
+          password: hashPassword('hello'),
+        });
 
       const req = mockRequest({}, { username: 'sean', password: 'hello' });
       const res = mockResponse();
@@ -93,11 +96,32 @@ describe('usersController', () => {
       expect(res.status.calledWith(401)).to.be.true;
       expect(
         res.json.calledWith({
-          errorMessage: "This user doesn't exist, please try again!",
+          errorMessage: 'This user already exists, please try again!',
         }),
       ).to.be.true;
     });
 
-    it('Valid user info', () => {});
+    it('Valid user info', async () => {
+      sinon
+        .stub(UserDao, 'findOne')
+        .withArgs({ username: 'sean' })
+        .onFirstCall()
+        .returns(null)
+        .onSecondCall()
+        .returns({
+          username: 'sean',
+          password: hashPassword('hello'),
+        });
+
+      sinon.stub(UserDao, 'create').returns(null);
+
+      const req = mockRequest({}, { username: 'sean', password: 'hello' });
+      const res = mockResponse();
+
+      await usersController.postRegister(req, res);
+
+      expect(res.status.calledWith(200)).to.be.true;
+      expect(res.json.args[0][0].token.length).greaterThan(0);
+    });
   });
 });
