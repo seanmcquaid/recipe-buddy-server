@@ -3,7 +3,6 @@
  */
 
 const app = require('./app');
-const debug = require('debug')('recipe-buddy-server:server');
 const http = require('http');
 
 /**
