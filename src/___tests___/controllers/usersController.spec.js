@@ -79,7 +79,7 @@ describe('usersController', () => {
     afterEach(() => {
       sinon.restore();
     });
-    it("User doesn't exist", async () => {
+    it('User exists', async () => {
       sinon
         .stub(UserDao, 'findOne')
         .withArgs({ username: 'sean' })
