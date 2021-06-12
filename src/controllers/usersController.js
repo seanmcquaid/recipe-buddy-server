@@ -42,7 +42,7 @@ exports.postRegister = async (req, res) => {
       });
     }
     const hashedPassword = hashPassword(password);
-    await UserDao.create({ username, password: hashedPassword });
+    await UserDao.create({ username, password: hashedPassword, recipes: [] });
 
     const userInfo = await UserDao.findOne({ username });
     const token = createJwt(userInfo._id, userInfo.username);
