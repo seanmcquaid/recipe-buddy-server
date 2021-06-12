@@ -29,6 +29,7 @@ exports.postAddRecipe = async (req, res) => {
       recipes,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       errorMessage: 'There was an issue with getting recipes',
     });
