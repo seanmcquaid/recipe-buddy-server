@@ -14,8 +14,6 @@ Docs for 3rd Party API : https://spoonacular.com/food-api/docs#Search-Recipes-by
 
 ### / - GET - all recipes
 
-### /:id - GET - get recipe
-
 ### /:id - DELETE - delete recipe
 
-POST - add recipe
+### / - POST - add recipe

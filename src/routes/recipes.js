@@ -1,8 +1,8 @@
 const express = require('express');
 const checkAuth = require('../utils/checkAuth');
 const recipesRouter = express.Router();
-// const usersController = require('../controllers/usersController');
+const recipesController = require('../controllers/recipesController');
 
-recipesRouter.get('/', checkAuth);
+recipesRouter.get('/', checkAuth, recipesController.getRecipes);
 
 module.exports = recipesRouter;

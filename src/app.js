@@ -6,8 +6,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const recipesRouter = require('./routes/recipes');
 
 const app = express();
 
@@ -33,7 +33,7 @@ mongoose
     console.log(err);
   });
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/recipes', recipesRouter);
 
 module.exports = app;
