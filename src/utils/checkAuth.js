@@ -4,7 +4,7 @@ require('dotenv').config();
 const checkAuth = (req, res, next) => {
   const token = req.header('Authorization');
   if (!token) {
-    return res.status(401).send({
+    return res.status(401).json({
       errorMessage: 'Invalid token',
     });
   }
@@ -14,7 +14,7 @@ const checkAuth = (req, res, next) => {
     req.token = decodedToken;
     next();
   } catch (err) {
-    return res.status(401).send({
+    return res.status(401).json({
       errorMessage: 'Expired Token',
     });
   }
